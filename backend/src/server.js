@@ -3,7 +3,9 @@ import 'dotenv/config'
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
-import authRoutes from './routes/authRoutes.js';
+import authRoute from './routes/authRoute.js';
+import userRoute from './routes/userRoute.js';
+
 import { connectDB } from './lib/db.js';
 
 
@@ -16,7 +18,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Routes
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoute);
+app.use('/api/user', userRoute);
+
 
 
 
