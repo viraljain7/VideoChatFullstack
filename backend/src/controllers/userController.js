@@ -25,9 +25,9 @@ const userController = {
   
       // Find users who are not friends and not the current user
       const recommendedUsers = await User.find({
-        $and: [
-          { _id: { $ne: currentUserId } }, // Exclude current user
-          { _id: { $nin: currentUser.friends } }, // Exclude friends
+        $and: [ // Combine conditions with $and
+          { _id: { $ne: currentUserId } }, // Exclude current user  (not equal to current user ID)
+          { _id: { $nin: currentUser.friends } }, // Exclude friends (not in current user's friends) 
           { isOnboarded: true } // Only include onboarded users
         ]
       }).select("-password");
@@ -37,6 +37,11 @@ const userController = {
       console.error("Error in recommended users userController:", error);
       res.status(500).json({ message: "Server error." });
     }
+  },
+
+  sendFriendRequest: async (req, res) => {
+
+    
   }
 
 
