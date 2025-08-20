@@ -1,14 +1,27 @@
+import { Route, Routes } from "react-router";
+import { CallPage, ChatPage, HomePage, LoginPage, NotificationPage, OnboardingPage, SignupPage } from "./pages/index.jsx";
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="h-screen" data-theme="night">
+<Routes>
+  <Route path="/" element={<HomePage />} />
+  <Route path="/chat" element={<ChatPage />} />
+  <Route path="/call" element={<CallPage />} />
+  <Route path="/signup" element={<SignupPage />} />
+  <Route path="/login" element={<LoginPage />} />
+  <Route path="/onboarding" element={<OnboardingPage />} />
+  <Route path="/notification" element={<NotificationPage />} />
 
-export default App
+
+
+
+
+
+</Routes>
+    </div>
+    
+  )
+
+
+}
