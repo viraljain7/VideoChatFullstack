@@ -85,6 +85,71 @@ const userController = {
       res.status(500).json({ message: "Server error." });
     }
   },
+
+  acceptFriendRequest: async (req, res) => {
+    try {
+      const myId = req.user.id;
+      const { id: requestId } = req.params;
+
+      const friendRequest = await FriendRequest.findById(requestId);
+      if (!friendRequest) {
+        return res.status(404).json({ message: "Friend request not found." });
+      }
+
+      if (friendRequest.recipient.toString() !== myId) {
+        return res.status(403).json({ message: "You can only accept your own friend requests." });
+      }
+
+      // Update the friend request status to accepted
+      friendRequest.status = "accepted";
+      await friendRequest.save();
+
+      // Add each other to friends list
+
+
+      console.log("Accepting friend request:", myId,"x ", friendRequest.sender,"y , ", friendRequest.recipient);
+      await User.findByIdAndUpdate(friendRequest.recipient, { $addToSet: { friends: friendRequest.sender } });
+      await User.findByIdAndUpdate(friendRequest.sender, { $addToSet: { friends: friendRequest.recipient } });
+
+      res.status(200).json({ message: "Friend request accepted successfully.", success: true });
+    } catch (error) {
+      console.error("Error in acceptFriendRequest Controller:", error);
+      res.status(500).json({ message: "Server error." });
+    }
+  },  
+
+   getFriendRequests: async(req, res) =>  {
+    try {
+      const incomingReqs = await FriendRequest.find({
+        recipient: req.user.id,
+        status: "pending",
+      }).populate("sender", "fullName profilePic nativeLanguage learningLanguage");
+  
+      const acceptedReqs = await FriendRequest.find({
+        sender: req.user.id,
+        status: "accepted",
+      }).populate("recipient", "fullName profilePic");
+  
+      res.status(200).json({ incomingReqs, acceptedReqs });
+    } catch (error) {
+      console.log("Error in getPendingFriendRequests controller", error.message);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
+
+  getOutgoingFriendReqs: async(req, res) =>  {
+    try {
+      const outgoingRequests = await FriendRequest.find({
+        sender: req.user.id,
+        status: "pending",
+      }).populate("recipient", "fullName profilePic nativeLanguage learningLanguage");
+  
+      res.status(200).json(outgoingRequests);
+    } catch (error) {
+      console.log("Error in getOutgoingFriendReqs controller", error.message);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
 };
 
 export default userController;

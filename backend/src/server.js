@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import authRoute from './routes/authRoute.js';
 import userRoute from './routes/userRoute.js';
+import chatRoute from './routes/chatRoute.js';
 
 import { connectDB } from './lib/db.js';
 
@@ -20,6 +21,8 @@ app.use(cookieParser());
 // Routes
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
+app.use('/api/chat', chatRoute);
+
 
 
 
