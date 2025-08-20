@@ -4,6 +4,8 @@ import { upsertStreamUser } from "../lib/stream.js";
 import User from "../models/userModal.js";
 import jwt from "jsonwebtoken";
 const authController = {
+
+  
   signup: async (req, res) => {
     const { fullName, email, password } = req.body;
 
