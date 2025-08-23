@@ -1,4 +1,4 @@
-import { getStreamToken } from "../lib/stream";
+import { getStreamToken } from "../lib/stream.js";
 
 const chatController = {
     getStreamToken: async (req, res) => {   

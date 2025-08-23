@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
 
 function HomePage() {
+
   return (
-    <div>
-      Home
+    <div className="flex items-center justify-center h-full"
+      data-theme="lofi"
+      >
+      <h1 className="text-3xl font-bold">Home</h1>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
