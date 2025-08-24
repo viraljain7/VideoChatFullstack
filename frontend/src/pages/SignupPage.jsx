@@ -1,9 +1,7 @@
 import React from "react";
 import login from "../assets/login.svg";
 import { Link } from "react-router";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { signup } from "../lib/api";
-import toast from "react-hot-toast";
+import { useSignup } from "../hooks/useSignup";
 
 const SignupPage = () => {
   const [signupData, setSignupData] = React.useState({
@@ -11,22 +9,10 @@ const SignupPage = () => {
     email: "",
     password: "",
   });
-const queryClient = useQueryClient();
-  const {
-    mutate: signupMutation,
-    isPending,
-    error,
-  } = useMutation({
-    mutationFn: signup,
-    onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["authUser"] });
-      toast.success(data.message||"Signup successful! Welcome aboard.");
-    },
-    onError: (error) => {
-      toast.error(error?.response?.data?.message || "Signup failed. Please try again.");
-    },
-  });
 
+  
+  const { signupMutation, isPending, error } = useSignup();
+  
   const handleChange = (e) => {
     setSignupData({
       ...signupData,

@@ -154,7 +154,7 @@ function OnboardingPage() {
               onChange={changeHandler}
               required
             >
-              <option disabled defaultValue>
+              <option  >
                 Select native
               </option>
               {LANGUAGES.map((lang) => (
@@ -176,7 +176,7 @@ function OnboardingPage() {
               onChange={changeHandler}
               required
             >
-              <option disabled defaultValue>
+              <option  >
                 Select learning
               </option>
               {LANGUAGES.map((lang) => (

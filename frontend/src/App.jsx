@@ -37,7 +37,7 @@ export default function App() {
         />
         <Route
           path="/login"
-          element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" />}
+          element={!isAuthenticated ? <LoginPage /> : (isOnboarding ? <Navigate to="/" /> : <Navigate to="/onboarding" />)} 
         />
         <Route
           path="/chat"
