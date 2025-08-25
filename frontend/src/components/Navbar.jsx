@@ -1,9 +1,10 @@
 import React from "react";
-import { Bell, User, Sun, Moon, LogOut } from "lucide-react";
+import { Bell, Sun, Moon, LogOut } from "lucide-react";
 import { useAuthUser } from "../hooks/useAuthUser";
 import { useLogout } from "../hooks/useLogout";
+import ThemeSelection from "./ThemeSelection";
 
-function Navbar({ theme, toggleTheme,  }) {
+function Navbar() {
 const { authUser } = useAuthUser();
 const {logoutMutation} = useLogout()
 
@@ -26,6 +27,11 @@ const {logoutMutation} = useLogout()
           <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
         </button>
 
+        {/* Theme toggle */}
+      
+        <ThemeSelection/>
+
+        
         {/* User */}
         <div className="flex items-center gap-2">
           <img
@@ -35,10 +41,6 @@ const {logoutMutation} = useLogout()
           />
         </div>
 
-        {/* Theme toggle */}
-        <button onClick={toggleTheme}>
-          {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
 
         {/* Logout */}
         <button onClick={handleLogout}>

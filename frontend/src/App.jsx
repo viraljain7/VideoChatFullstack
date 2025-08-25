@@ -11,16 +11,20 @@ import {
 import GlobalLoader from "./components/Loader.jsx";
 import { useAuthUser } from "./hooks/useAuthUser.js";
 import Layout from "./components/Layout.jsx";
+import { useThemeStore } from "./store/useThemeStore.js";
 
 export default function App() {
   const { isLoading, authUser } = useAuthUser();
   const isAuthenticated = Boolean(authUser);
   const isOnboarding = authUser?.isOnboarded;
+const {theme}=useThemeStore();
 
+
+console.log(theme)
   if (isLoading) return <GlobalLoader />;
 
   return (
-    <div className="h-screen" data-theme="night">
+    <div className="h-screen" data-theme={theme}>
       <Routes>
         <Route
           path="/"

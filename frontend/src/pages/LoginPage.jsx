@@ -26,7 +26,7 @@ const LoginPage = () => {
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-base-200"
-      data-theme="lofi"
+      // data-theme="lofi"
     >
       <div className="bg-base-100 shadow-xl rounded-lg overflow-hidden w-full max-w-4xl grid grid-cols-1 md:grid-cols-2">
         {/* Left: Image */}

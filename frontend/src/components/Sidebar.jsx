@@ -15,7 +15,8 @@ function Sidebar() {
   ];
 
   return (
-    <div className="flex" data-theme="lofi">
+    <div className="flex" 
+    >
       {/* Mobile Navbar */}
       <div className="lg:hidden fixed top-0 left-0 w-full bg-base-200 shadow-md flex items-center justify-between p-4 z-50">
         <div className="flex items-center gap-2">

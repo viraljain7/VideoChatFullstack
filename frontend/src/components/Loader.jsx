@@ -1,8 +1,13 @@
 import React from "react";
 import {  LoaderIcon } from "lucide-react";
+import { useThemeStore } from "../store/useThemeStore";
 const GlobalLoader = () => {
+
+  const {theme}= useThemeStore();
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50" data-theme="lofi">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50" 
+    data-theme={theme}
+    >
       <div className="flex flex-col items-center">
         {/* DaisyUI Button Spinner adapts to theme */}
         <LoaderIcon
@@ -10,7 +15,7 @@ const GlobalLoader = () => {
           strokeWidth={2.5}
         />
         {/* Text adapts to theme using text-base-content */}
-        <span className="mt-4 font-medium text-base-content">Please wait...</span>
+        <span className="mt-4 font-medium text-primary">Please wait...</span>
       </div>
       
     </div>

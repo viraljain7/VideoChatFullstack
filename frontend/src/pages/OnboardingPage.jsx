@@ -56,7 +56,6 @@ function OnboardingPage() {
   const handleImageChange = () => {
     const randomNum = Math.floor(Math.random() * 100);
     const newImgUrl = `https://avatar.iran.liara.run/public/${randomNum}.png`;
-
     setOnboardingData((prev) => ({
       ...prev,
       avatarUrl: newImgUrl,
@@ -67,8 +66,8 @@ function OnboardingPage() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center  p-6"
-      data-theme="lofi"
+      className="min-h-full flex items-center justify-center  p-6"
+      // data-theme="lofi"
     >
       <div className="card w-full max-w-lg border border-base-500/40 shadow-3xl p-6 space-y-6">
         {/* Image Preview */}
