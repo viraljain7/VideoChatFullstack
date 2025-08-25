@@ -10,6 +10,7 @@ import {
 } from "./pages/index.jsx";
 import GlobalLoader from "./components/Loader.jsx";
 import { useAuthUser } from "./hooks/useAuthUser.js";
+import Layout from "./components/Layout.jsx";
 
 export default function App() {
   const { isLoading, authUser } = useAuthUser();
@@ -25,7 +26,9 @@ export default function App() {
           path="/"
           element={
             isAuthenticated && isOnboarding ? (
+              <Layout showSidebar={true}> 
               <HomePage />
+              </Layout>
             ) : (
               <Navigate to={isAuthenticated ? "/onboarding" : "/login"} />
             )
@@ -41,7 +44,10 @@ export default function App() {
         />
         <Route
           path="/chat"
-          element={isAuthenticated ? <ChatPage /> : <Navigate to="/login" />}
+          element={isAuthenticated ?   <Layout showSidebar={true}> 
+          
+          <ChatPage />
+          </Layout> : <Navigate to="/login" />}
         />
         <Route
           path="/call"
@@ -63,7 +69,7 @@ export default function App() {
             isAuthenticated ? <NotificationPage /> : <Navigate to="/login" />
           }
         />
-        <Route path="*" element={<div>404 Not Found</div>} />
+        <Route path="*" element={isAuthenticated ? <div>404 Not Found</div> : <Navigate to="/login" />} />
       </Routes>
     </div>
   );
