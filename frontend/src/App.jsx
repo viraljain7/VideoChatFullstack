@@ -67,9 +67,15 @@ const {theme}=useThemeStore();
           }
         />
         <Route
-          path="/notification"
+          path="/notifications"
           element={
-            isAuthenticated ? <NotificationPage /> : <Navigate to="/login" />
+            isAuthenticated && isOnboarding ? (
+              <Layout showSidebar={true}> 
+              <NotificationPage />
+              </Layout>
+            ) : (
+              <Navigate to={isAuthenticated ? "/onboarding" : "/login"} />
+            )
           }
         />
         <Route path="*" element={isAuthenticated ? <div>404 Not Found</div> : <Navigate to="/login" />} />

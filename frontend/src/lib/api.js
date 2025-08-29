@@ -48,3 +48,19 @@ export const signup= async (signupData) => {
     const res = await axiosInstance.post(`/user/friend-requests/${userId}`); // corrected endpoint for outgoing friend requests
     return res.data;
   }
+
+
+export async function getFriendRequests() {
+  const response = await axiosInstance.get("/user/friend-requests");
+  return response.data;
+}
+
+export async function acceptFriendRequest(requestId) {
+  const response = await axiosInstance.put(`/user/friend-requests/${requestId}/accept`);
+  return response.data;
+}
+
+export async function getStreamToken() {
+  const response = await axiosInstance.get("/chat/token");
+  return response.data;
+}

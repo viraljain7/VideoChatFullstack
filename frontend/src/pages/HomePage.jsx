@@ -60,7 +60,7 @@ const HomePage = () => {
         ) : friends.length === 0 ? (
           <NoFriendCard />
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">
             {friends.map((friend) => (
               <FriendCard key={friend._id} friend={friend} />
             ))}
@@ -87,7 +87,7 @@ const HomePage = () => {
               <span className="loading loading-spinner loading-lg" />
             </div>
           ) : recommendedUsers.length === 0 ? (
-            <div className="card bg-base-200 p-6 text-center">
+            <div className="card bg-base-100 p-6 text-center">
               <h3 className="font-semibold text-lg mb-2">
                 No recommendations available
               </h3>
@@ -103,7 +103,7 @@ const HomePage = () => {
                 return (
                   <div
                     key={user._id}
-                    className="card bg-base-200 hover:shadow-lg transition-all duration-300"
+                    className="card bg-base-100 hover:shadow-lg transition-all duration-300"
                   >
                     <RecommendedUserCard
                       user={user}

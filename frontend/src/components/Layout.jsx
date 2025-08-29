@@ -6,12 +6,13 @@ function Layout({ children, showSidebar = false }) {
   return (
     <div className="min-h-screen " 
     >
-      <div className="flex bg-base-200">
+      <div className="flex bg-base-100">
         {showSidebar && <Sidebar />}
         <div className="flex flex-1 flex-col">
           <Navbar />
-
-          <main className="flex-1 overflow-y-auto ">{children}</main>
+          <main className="flex-1 overflow-y-auto mt-[75px] lg:mt-0">
+  {children}
+</main>
         </div>
       </div>
     </div>
