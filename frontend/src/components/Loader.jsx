@@ -15,7 +15,7 @@ const GlobalLoader = () => {
           strokeWidth={2.5}
         />
         {/* Text adapts to theme using text-base-content */}
-        <span className="mt-4 font-medium text-primary">Please wait...</span>
+        <span className="mt-4 font-medium ">Please wait...</span>
       </div>
       
     </div>

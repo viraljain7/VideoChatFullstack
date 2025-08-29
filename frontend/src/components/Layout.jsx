@@ -6,7 +6,7 @@ function Layout({ children, showSidebar = false }) {
   return (
     <div className="min-h-screen " 
     >
-      <div className="flex">
+      <div className="flex bg-base-200">
         {showSidebar && <Sidebar />}
         <div className="flex flex-1 flex-col">
           <Navbar />

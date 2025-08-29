@@ -1,11 +1,11 @@
-import { PaletteIcon } from "lucide-react";
+import { CheckCheck, PaletteIcon } from "lucide-react";
 import React, { useState } from "react";
 import { THEMES } from "../constants";
 import { useThemeStore } from "../store/useThemeStore";
 
 const ThemeSelection = () => {
-  const { setTheme } = useThemeStore();
-
+  const {theme:currentTheme, setTheme } = useThemeStore();
+// console.log("Current theme:", theme);
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
   };
@@ -26,11 +26,13 @@ const ThemeSelection = () => {
             <li
               key={index}
               onClick={() => handleThemeChange(theme.name)}
-              className="flex items-center justify-between px-4 py-2 cursor-pointer rounded hover:bg-primary hover:text-white transition-colors"
+              className={`${currentTheme===theme.name ? 'bg-primary text-white' : ''} flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-primary hover:text-white transition-colors`}
             >
               <div className="flex items-center gap-2">
-                <PaletteIcon size={20} />
-                <span className="font-medium">{theme.name}</span>
+                {currentTheme === theme.name ?  (<CheckCheck size={20} />) : 
+                <PaletteIcon size={20} />}
+
+              <span className="font-medium">{theme.name}  </span>
               </div>
 
               <div className="flex gap-1">

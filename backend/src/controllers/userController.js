@@ -81,6 +81,7 @@ const userController = {
       res.status(201).json({ message: "Friend request sent successfully.", success: true, newFriendRequest });
  
     } catch (error) {
+
       console.error("Error in sendFriendRequest Controller:", error);
       res.status(500).json({ message: "Server error." });
     }

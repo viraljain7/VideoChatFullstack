@@ -11,9 +11,9 @@ router.get('/friends', userController.getMyFriends);
 
 
 
-router.post("/friend-request/:id", userController.sendFriendRequest);
+router.post("/friend-requests/:id", userController.sendFriendRequest);
 
-router.put("/friend-request/:id/accept", userController.acceptFriendRequest);
+router.put("/friend-requests/:id/accept", userController.acceptFriendRequest);
 
 router.get("/friend-requests", userController.getFriendRequests);
 router.get("/outgoing-friend-requests", userController.getOutgoingFriendReqs);

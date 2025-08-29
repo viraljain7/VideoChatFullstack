@@ -20,7 +20,6 @@ export default function App() {
 const {theme}=useThemeStore();
 
 
-console.log(theme)
   if (isLoading) return <GlobalLoader />;
 
   return (

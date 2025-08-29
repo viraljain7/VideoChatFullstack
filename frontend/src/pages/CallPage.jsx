@@ -8,4 +8,4 @@ function CallPage() {
   )
 }
 
-export default CallPage
+export default CallPage;
