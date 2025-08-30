@@ -1,0 +1,21 @@
+
+{
+  "name": "videochatfullstack",
+  "version": "1.0.0",
+  "description": "Video chat application with separate frontend and backend",
+  "scripts": {
+    "go": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "start-backend": "cd backend && npm start",
+    "render-build": "npm run install-frontend && npm run install-backend && npm run build-frontend",
+    "start": "npm run start-backend"
+  },
+  "keywords": ["videochat", "webrtc", "socket.io"],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
