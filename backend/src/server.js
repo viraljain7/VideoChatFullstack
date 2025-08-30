@@ -1,6 +1,7 @@
 import express from 'express';
 import 'dotenv/config'
 import cors from 'cors'
+import path from "path";
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import authRoute from './routes/authRoute.js';
@@ -27,7 +28,13 @@ app.use('/api/user', userRoute);
 app.use('/api/chat', chatRoute);
 
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 
 connectDB().then(() => // Start the server

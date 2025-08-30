@@ -3,6 +3,7 @@ import { Bell, LogOut } from "lucide-react";
 import { useAuthUser } from "../hooks/useAuthUser";
 import { useLogout } from "../hooks/useLogout";
 import ThemeSelection from "./ThemeSelection";
+import { NavLink } from "react-router";
 
 function Navbar() {
   const { authUser } = useAuthUser();
@@ -18,8 +19,10 @@ function Navbar() {
       <div className="flex items-center gap-4">
         {/* Notification */}
         <button className="relative text-base-content hover:text-primary transition-colors">
+        <NavLink to="/notifications">
           <Bell size={20} />
           <span className="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+        </NavLink>
         </button>
 
         {/* Theme toggle */}
