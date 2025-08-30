@@ -7,6 +7,6 @@ const router = Router();
 
 router.use(protectRoute)
 
-router.post('/token', chatController.getStreamToken);
+router.get('/token', chatController.getStreamToken);
 
 export default router;  

@@ -27,7 +27,6 @@ function NotificationPage() {
   const incomingRequests = friendRequests?.incomingReqs || [];
   const acceptRequests = friendRequests?.acceptedReqs || [];
 
-  console.log(incomingRequests, acceptRequests);
 
   if (isLoading) return <Loader />;
 

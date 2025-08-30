@@ -46,15 +46,29 @@ const {theme}=useThemeStore();
           element={!isAuthenticated ? <LoginPage /> : (isOnboarding ? <Navigate to="/" /> : <Navigate to="/onboarding" />)} 
         />
         <Route
-          path="/chat"
-          element={isAuthenticated ?   <Layout showSidebar={true}> 
-          
-          <ChatPage />
-          </Layout> : <Navigate to="/login" />}
+          path="/chat/:id"
+          element={
+            isAuthenticated && isOnboarding ? (
+              <Layout showSidebar={true}> 
+              <ChatPage />
+              </Layout>
+            ) : (
+              <Navigate to={isAuthenticated ? "/onboarding" : "/login"} />
+            )
+          }
         />
         <Route
-          path="/call"
-          element={isAuthenticated ? <CallPage /> : <Navigate to="/login" />}
+          path="/call/:videoId"
+
+          element={
+            isAuthenticated && isOnboarding ? (
+              <Layout showSidebar={true}> 
+              <CallPage />
+              </Layout>
+            ) : (
+              <Navigate to={isAuthenticated ? "/onboarding" : "/login"} />
+            )
+          }
         />
         <Route
           path="/onboarding"

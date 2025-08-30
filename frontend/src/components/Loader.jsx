@@ -5,7 +5,7 @@ const GlobalLoader = () => {
 
   const {theme}= useThemeStore();
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50" 
+    <div className="h-screen flex flex-col items-center justify-center p-4" 
     data-theme={theme}
     >
       <div className="flex flex-col items-center">

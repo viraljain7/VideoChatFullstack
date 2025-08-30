@@ -130,7 +130,6 @@ const userController = {
         sender: req.user.id,
         status: "accepted",
       }).populate("recipient", "fullName profilePic nativeLanguage learningLanguage");
-      console.log({ incomingReqs,  acceptedReqs })
       res.status(200).json({ incomingReqs,  acceptedReqs });
     } catch (error) {
       console.log("Error in getPendingFriendRequests controller", error.message);

@@ -19,7 +19,6 @@ function OnboardingPage() {
     avatarUrl: authUser.profilePic,
   });
 
-    console.log(onboardingData.avatarUrl)
   const changeHandler = (e) => {
     setOnboardingData({
       ...onboardingData,

@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import { Toaster } from "react-hot-toast";
 
+import 'stream-chat-react/dist/css/v2/index.css';
 
 import {
   QueryClient,
