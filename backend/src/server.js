@@ -14,6 +14,9 @@ import { connectDB } from './lib/db.js';
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+const __dirname = path.resolve();
+
 // Middleware
 app.use(cors({ origin: 'http://localhost:5173/',
   methods: ["GET", "POST", "PUT", "DELETE"],
